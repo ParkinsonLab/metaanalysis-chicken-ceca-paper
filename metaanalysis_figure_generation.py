@@ -442,10 +442,11 @@ V68_samples.to_csv('V68_sample_num.txt','\t') # Need this file to generate cytos
 Salvax_taxa = pd.read_csv('Salvax_taxa.txt','\t')
 Salvax_taxa['genus'] = taxonomy_trim(Salvax_taxa['taxonomy'],'; ','D_5',5)
 Salvax_taxa.set_index('#OTUID', inplace=True)
-Salvax_taxa['family'] = taxonomy_trim(Salvax_taxa['taxonomy'],'; ','D_4',4)
 V4_Salvax_otu_tab = process_otu_tab('Salvax_otu_min100.txt', Salvax_taxa)  # Need later for figure S7
 
 biodiv_taxa = pd.read_csv('biodiv_taxa.txt','\t')
+biodiv_taxa['genus'] = taxonomy_trim(biodiv_taxa['taxonomy'],'; ','D_5',5)
+biodiv_taxa.set_index('#OTU ID', inplace=True)
 V3_biodiv_otu_tab = process_otu_tab('biodiv_otu_min100.txt', biodiv_taxa)  # Need later for figure S7
 
 def lacto_stacked_rel(otu_tab):
